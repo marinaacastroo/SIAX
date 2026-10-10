@@ -1,0 +1,9 @@
+mas familia {
+
+    agent tom: tom.asl
+
+    agent erik: erik.asl
+
+    agent eve: eve.asl
+
+}

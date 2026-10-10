@@ -1,0 +1,75 @@
+/*
+    JaCaMo Application File  --  Family relationships (6)
+
+    Un agente por cada miembro de la familia, todos con el mismo codigo (me.asl).
+    Las unicas creencias iniciales de cada agente son los hechos es_padre_de/2
+    y es_madre_de/2 en los que aparece su propio nombre (como progenitor o
+    como hijo). Cada agente averigua quien es con .my_name, comparte sus
+    hechos con los demas y despues calcula sus parientes.
+*/
+
+mas family {
+
+    agent fred : me.asl {
+        beliefs: es_padre_de(fred,erik),
+                 es_padre_de(fred,tom),
+                 es_padre_de(john,fred),
+                 es_madre_de(ann,fred)
+    }
+
+    agent erik : me.asl {
+        beliefs: es_padre_de(fred,erik),
+                 es_padre_de(erik,eve),
+                 es_madre_de(liz,erik)
+    }
+
+    agent tom : me.asl {
+        beliefs: es_padre_de(fred,tom),
+                 es_madre_de(liz,tom)
+    }
+
+    agent eve : me.asl {
+        beliefs: es_padre_de(erik,eve),
+                 es_madre_de(july,eve)
+    }
+
+    agent bob : me.asl {
+        beliefs: es_padre_de(bob,liz)
+    }
+
+    agent liz : me.asl {
+        beliefs: es_padre_de(bob,liz),
+                 es_madre_de(liz,erik),
+                 es_madre_de(liz,tom),
+                 es_madre_de(sally,liz)
+    }
+
+    agent john : me.asl {
+        beliefs: es_padre_de(john,fred),
+                 es_padre_de(john,karl)
+    }
+
+    agent karl : me.asl {
+        beliefs: es_padre_de(john,karl),
+                 es_padre_de(karl,nico),
+                 es_madre_de(ann,karl)
+    }
+
+    agent nico : me.asl {
+        beliefs: es_padre_de(karl,nico)
+    }
+
+    agent sally : me.asl {
+        beliefs: es_madre_de(sally,liz)
+    }
+
+    agent ann : me.asl {
+        beliefs: es_madre_de(ann,fred),
+                 es_madre_de(ann,karl)
+    }
+
+    agent july : me.asl {
+        beliefs: es_madre_de(july,eve)
+    }
+
+}
